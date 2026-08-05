@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import BookDemoButton from './BookDemoButton';
 
 export default function Header() {
   return (
@@ -16,7 +17,7 @@ export default function Header() {
     </div>
     <div className="nav-cta">
       <Link href="/contact" className="btn btn-ghost" style={{display:"none"}} id="callLink"></Link>
-      <button className="btn btn-accent" >Book Free Demo</button>
+      <BookDemoButton text="Book Free Demo" className="btn btn-accent" />
     </div>
   </nav>
 </header>

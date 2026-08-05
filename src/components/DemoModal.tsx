@@ -7,7 +7,7 @@ export default function DemoModal() {
   const [product, setProduct] = useState('General');
   const [isSuccess, setIsSuccess] = useState(false);
   const [name, setName] = useState('');
-  
+
   useEffect(() => {
     const handleOpen = (e: any) => {
       setProduct(e.detail || 'General');
@@ -16,20 +16,20 @@ export default function DemoModal() {
       document.body.style.overflow = 'hidden';
     };
     window.addEventListener('open-demo', handleOpen);
-    
+
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') closeDemo();
     };
     document.addEventListener('keydown', handleKeyDown);
 
-    // Global click listener for backwards compatibility with the raw HTML converter
+    // Global click listener for backwards compatibility with Server Components
     const handleGlobalClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      if (target && target.tagName === 'BUTTON' && target.textContent?.includes('Book')) {
-        // Simple heuristic: if button says "Book", open demo
+      const btn = target.closest('button');
+      if (btn && btn.textContent && btn.textContent.includes('Book')) {
         let prod = 'General';
-        if (target.textContent.includes('POS')) prod = 'Trushti POS';
-        if (target.textContent.includes('Desktime')) prod = 'Trushti Desktime';
+        if (btn.textContent.includes('POS')) prod = 'Trushti POS';
+        if (btn.textContent.includes('Desktime')) prod = 'Trushti Desktime';
         window.dispatchEvent(new CustomEvent('open-demo', { detail: prod }));
       }
     };
@@ -83,26 +83,22 @@ export default function DemoModal() {
     }
 
     const waText = encodeURIComponent(
-      `Hi Trushti Solutions, I'd like to book a free demo.\n\n`+
-      `Name: ${formName}\nBusiness: ${business}\nPhone: ${phone}`+
-      (email ? `\nEmail: ${email}` : '')+
-      `\nInterested in: ${formProduct}`+
+      `Hi Trushti Solutions, I'd like to book a free demo.\n\n` +
+      `Name: ${formName}\nBusiness: ${business}\nPhone: ${phone}` +
+      (email ? `\nEmail: ${email}` : '') +
+      `\nInterested in: ${formProduct}` +
       (message ? `\nMessage: ${message}` : '')
     );
-    const waLink = `https://wa.me/919737300478?text=${waText}`;
 
     setIsSuccess(true);
-    
-    // Auto-open WhatsApp after 1 second or allow manual click
-    setTimeout(() => {
-      window.open(waLink, '_blank');
-    }, 1000);
+
+
   };
 
   if (!isOpen) return null;
 
   return (
-    <div className="modal-overlay open" onClick={(e) => { if(e.target === e.currentTarget) closeDemo(); }}>
+    <div className="modal-overlay open" onClick={(e) => { if (e.target === e.currentTarget) closeDemo(); }}>
       <div className="modal">
         <button className="modal-close" onClick={closeDemo}>✕</button>
 
@@ -140,7 +136,7 @@ export default function DemoModal() {
                 <label htmlFor="d-message">Message (optional)</label>
                 <textarea id="d-message" name="message" placeholder="Tell us about your business or requirement"></textarea>
               </div>
-              <button type="submit" className="btn btn-accent" style={{width:"100%", justifyContent:"center", padding:"13px"}}>
+              <button type="submit" className="btn btn-accent" style={{ width: "100%", justifyContent: "center", padding: "13px" }}>
                 Send &amp; Continue on WhatsApp →
               </button>
             </form>
@@ -150,7 +146,7 @@ export default function DemoModal() {
             <div className="tick">✓</div>
             <h3>Thanks, {name}!</h3>
             <p className="sub">Your details are ready — continue on WhatsApp to confirm your free demo slot with our team.</p>
-            <button className="btn btn-accent" style={{width:"100%", justifyContent:"center"}} onClick={closeDemo}>Close</button>
+            <button className="btn btn-accent" style={{ width: "100%", justifyContent: "center" }} onClick={closeDemo}>Close</button>
           </div>
         )}
       </div>

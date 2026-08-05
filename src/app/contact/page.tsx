@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import BookDemoButton from '@/components/BookDemoButton';
 
 export default function ContactPage() {
   return (
@@ -34,7 +35,7 @@ export default function ContactPage() {
         
         <div style={{marginTop: "24px", paddingTop: "24px", borderTop: "1px solid #e2e8f0"}}>
           <h3 style={{ fontSize: '1.25rem', marginBottom: '16px' }}>Prefer WhatsApp?</h3>
-          <button className="btn btn-accent" onClick={() => window.dispatchEvent(new CustomEvent('open-demo', { detail: 'General' }))}>Book Demo via WhatsApp →</button>
+          <BookDemoButton text="Book Demo via WhatsApp →" className="btn btn-accent" />
         </div>
       </div>
       
