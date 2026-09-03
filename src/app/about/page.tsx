@@ -18,7 +18,7 @@ export default function AboutPage() {
         <button className="btn btn-accent" >Talk to Our Team →</button>
       </div>
       <div className="about-stats reveal">
-        <div className="astat"><b>50+</b><span>Businesses using Trushti POS</span></div>
+        <div className="astat"><b>100+</b><span>Businesses using Trushti POS</span></div>
         <div className="astat"><b>24×7</b><span>Customer support</span></div>
         <div className="astat"><b>2</b><span>In‑house products</span></div>
         <div className="astat"><b>6+</b><span>IT service lines</span></div>

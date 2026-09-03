@@ -37,7 +37,7 @@ export default function ProductsPage() {
               
               <div style={{ marginTop: 'auto' }}>
                 <Link href="/products/trushti-pos" style={{ display: 'block', textAlign: 'center', background: '#0f172a', color: '#ffffff', padding: '16px 24px', borderRadius: '8px', textDecoration: 'none', fontWeight: 600, transition: 'background 0.2s' }}>
-                  View Details & Download
+                  View Details →
                 </Link>
               </div>
             </div>

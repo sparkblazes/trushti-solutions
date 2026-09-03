@@ -9,13 +9,13 @@ interface BookDemoButtonProps {
   product?: string;
 }
 
-export default function BookDemoButton({ 
-  text = 'Book Free Demo', 
-  className = 'btn btn-accent', 
-  style, 
-  product = 'General' 
+export default function BookDemoButton({
+  text = 'Book Free Demo',
+  className = 'btn btn-accent',
+  style,
+  product = 'General'
 }: BookDemoButtonProps) {
-  
+
   const handleClick = () => {
     // Dispatch the custom event that DemoModal is listening for
     window.dispatchEvent(new CustomEvent('open-demo', { detail: product }));
