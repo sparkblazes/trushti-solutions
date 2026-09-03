@@ -7,16 +7,16 @@ export default function HomePage() {
       <section className="hero" id="top">
         <div className="wrap hero-grid">
           <div>
-            <span className="eyebrow">● Trusted by 50+ Businesses</span>
+            <span className="eyebrow">● Trusted by 100+ Businesses</span>
             <h1>Smart POS. <span>Better Business.</span><br />Built by Trushti.</h1>
             <p className="lead">Trushti POS handles billing, inventory, and Tally sync in seconds. Desktime keeps your team's attendance under control. Built, supported, and customised by our in‑house experts.</p>
             <div className="hero-ctas">
               <BookDemoButton text="Book Your Free Demo →" className="btn btn-accent" />
-              <Link href="#products-highlight" className="btn btn-ghost-light">Explore Products</Link>
+              <Link href="/products" className="btn btn-ghost-light">Explore Products</Link>
             </div>
             <div className="hero-stats">
               <div><b>3s</b><span>AVG. CHECKOUT</span></div>
-              <div><b>50+</b><span>TRUSTED BRANDS</span></div>
+              <div><b>100+</b><span>TRUSTED BRANDS</span></div>
               <div><b>24/7</b><span>ACTIVE SUPPORT</span></div>
             </div>
           </div>

@@ -5,7 +5,7 @@ export default function Footer() {
     <footer>
   <div className="footer-top">
     <div className="footer-col">
-      <Link href="/" className="logo" style={{marginBottom: "16px"}}><img src="/logo.png" alt="Trushti Solutions Logo" style={{height: "56px", objectFit: "contain", filter: "brightness(0) invert(1)"}} /></Link>
+      <Link href="/" className="logo" style={{marginBottom: "16px"}}><img src="/sidebar-logo.png" alt="Trushti Solutions Logo" style={{height: "48px", objectFit: "contain"}} /></Link>
       <p style={{fontSize:"14.5px", marginBottom:"24px", lineHeight:1.6, maxWidth:"320px"}}>Trushti Solutions builds Trushti POS and Trushti Desktime, plus custom software, mobile app, web, AI and ecommerce development services in Ahmedabad.</p>
       <div className="social-icons">
         <Link href="#" aria-label="Facebook">FB</Link>
