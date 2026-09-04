@@ -30,6 +30,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -38,6 +39,7 @@ body {
   color: var(--text);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 h1,
@@ -266,6 +268,16 @@ nav {
     grid-template-columns: 1fr;
     text-align: center;
   }
+  
+  .hero-grid > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
+  }
 }
 
 .eyebrow {
@@ -338,6 +350,13 @@ nav {
     justify-content: center;
     border-top: none;
     padding-top: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-stats {
+    gap: 20px;
+    margin-top: 24px;
   }
 }
 
@@ -665,6 +684,12 @@ nav {
   }
 }
 
+@media (max-width: 500px) {
+  .highlight-strip {
+    grid-template-columns: 1fr;
+  }
+}
+
 .hs-item {
   background: #fff;
   padding: 48px 32px;
@@ -943,6 +968,11 @@ footer {
 }
 
 @media (max-width: 960px) {
+  .dashboard-stage {
+    width: 100%;
+    margin-top: 48px;
+  }
+
   .dashboard-glass-container {
     width: 100%;
     margin-left: 0;
@@ -1029,10 +1059,14 @@ footer {
   line-height: 1.5;
   display: block;
 }
+
 /* ---------- DEMO MODAL ---------- */
 .modal-overlay {
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: rgba(14, 20, 32, 0.8);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -1045,10 +1079,12 @@ footer {
   visibility: hidden;
   transition: all 0.3s ease;
 }
+
 .modal-overlay.open {
   opacity: 1;
   visibility: visible;
 }
+
 .modal {
   background: #fff;
   width: 100%;
@@ -1062,9 +1098,11 @@ footer {
   max-height: 90vh;
   overflow-y: auto;
 }
+
 .modal-overlay.open .modal {
   transform: translateY(0);
 }
+
 .modal-close {
   position: absolute;
   top: 24px;
@@ -1082,23 +1120,28 @@ footer {
   border-radius: 50%;
   transition: background 0.2s ease;
 }
+
 .modal-close:hover {
   background: var(--paper);
   color: var(--ink);
 }
+
 .modal h3 {
   font-size: 24px;
   margin-bottom: 8px;
 }
+
 .modal p.sub {
   color: var(--muted);
   font-size: 15px;
   margin-bottom: 24px;
   line-height: 1.5;
 }
+
 .modal .field {
   margin-bottom: 16px;
 }
+
 .modal label {
   display: block;
   font-size: 13px;
@@ -1106,6 +1149,7 @@ footer {
   color: var(--ink-2);
   margin-bottom: 6px;
 }
+
 .modal input,
 .modal select,
 .modal textarea {
@@ -1119,19 +1163,23 @@ footer {
   transition: border-color 0.2s ease;
   background: #fff;
 }
+
 .modal input:focus,
 .modal select:focus,
 .modal textarea:focus {
   border-color: var(--teal);
 }
+
 .modal textarea {
   resize: vertical;
   min-height: 80px;
 }
+
 .form-success {
   text-align: center;
   padding: 20px 0;
 }
+
 .form-success .tick {
   width: 64px;
   height: 64px;
@@ -1143,4 +1191,144 @@ footer {
   justify-content: center;
   font-size: 32px;
   margin: 0 auto 24px;
+}
+
+/* ---------- RESPONSIVENESS & MOBILE MENU ---------- */
+/* Hamburger Toggle */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 101;
+}
+
+.hamburger span {
+  width: 2rem;
+  height: 0.25rem;
+  background: var(--ink);
+  border-radius: 10px;
+  transition: all 0.3s linear;
+  position: relative;
+  transform-origin: 1px;
+}
+
+/* Mobile Nav Overlay */
+.mobile-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--paper);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.mobile-nav-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  transform: translateY(20px);
+  transition: transform 0.3s ease-in-out;
+}
+
+.mobile-nav-overlay.open .mobile-nav-links {
+  transform: translateY(0);
+}
+
+.mobile-nav-links a {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.mobile-nav-cta {
+  margin-top: 24px;
+}
+
+/* Base Responsive Breakpoints */
+@media (max-width: 960px) {
+
+  .nav-links,
+  .nav-cta {
+    display: none;
+  }
+
+  .hero-ctas {
+    margin-bottom: 32px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .hamburger.active span:first-child {
+    transform: rotate(45deg);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg);
+  }
+
+  /* When menu is open, we want the header to be transparent so the full screen menu shows well */
+  header.menu-open {
+    background: transparent;
+    border-bottom: none;
+  }
+
+  .hero h1 {
+    font-size: clamp(32px, 8vw, 48px);
+  }
+
+  .hero p.lead {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  section {
+    padding: 60px 0;
+  }
+
+  .hero {
+    padding: 100px 0 80px;
+  }
+
+  .section-head h2 {
+    font-size: clamp(28px, 6vw, 36px);
+  }
+
+  .receipt-stage,
+  .dashboard-stage {
+    transform: scale(0.9);
+  }
+
+  .footer-top {
+    padding-bottom: 30px;
+    gap: 30px;
+  }
 }
