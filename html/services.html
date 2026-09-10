@@ -246,17 +246,36 @@
   .astat span{font-size:13px; color:var(--muted-2);}
 
   /* ---------- SERVICES ---------- */
-  .services-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
-  @media (max-width:900px){ .services-grid{grid-template-columns:repeat(2,1fr);} }
-  @media (max-width:560px){ .services-grid{grid-template-columns:1fr;} }
-  .service-card{
-    background:#fff; border:1px solid var(--line); border-radius:18px; padding:28px;
-    transition:transform .18s ease, box-shadow .18s ease;
-  }
-  .service-card:hover{transform:translateY(-4px); box-shadow:0 16px 30px rgba(14,20,32,0.08);}
-  .service-num{font-family:'JetBrains Mono'; font-size:12px; color:var(--teal-dim); margin-bottom:16px;}
-  .service-card h3{font-size:19px; margin-bottom:10px;}
-  .service-card p{font-size:14px; color:var(--muted);}
+  .services-cards-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:50px 30px;}
+  @media (max-width:980px){ .services-cards-grid{grid-template-columns:repeat(2,1fr); gap:40px 24px;} }
+  @media (max-width:640px){ .services-cards-grid{grid-template-columns:1fr; gap:36px;} }
+  
+  .service-showcase-card{display:flex; flex-direction:column; align-items:center; text-align:center; position:relative;}
+  .service-card-media{position:relative; width:100%; height:240px; border-radius:16px; overflow:hidden; margin-bottom:24px; background:#0E1420; box-shadow:0 10px 25px -4px rgba(10,37,64,0.12); transform:translateZ(0); -webkit-transform:translateZ(0);}
+  .service-card-image{width:100%; height:100%; object-fit:cover; object-position:center; border-radius:16px; display:block; image-rendering:-webkit-optimize-contrast; image-rendering:auto; backface-visibility:hidden; -webkit-backface-visibility:hidden; transform:translateZ(0); -webkit-transform:translateZ(0); transition:transform .35s cubic-bezier(0.16,1,0.3,1);}
+  .service-showcase-card:hover .service-card-image{transform:scale(1.02) translateZ(0);}
+  .service-num-badge{position:absolute; top:12px; left:12px; background:rgba(14,20,32,0.82); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); color:#12A594; font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:700; padding:4px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.15); z-index:5; transition:opacity .25s ease;}
+  .service-showcase-card:hover .service-num-badge{opacity:0.4;}
+  .service-title-pill{position:absolute; bottom:16px; left:50%; transform:translateX(-50%); background:#ffffff; color:var(--ink); font-family:'Space Grotesk',sans-serif; font-size:14.5px; font-weight:700; padding:8px 22px; border-radius:9999px; white-space:nowrap; box-shadow:0 6px 18px rgba(0,0,0,0.1); border:1px solid var(--line); z-index:4; transition:opacity .25s ease, transform .25s ease;}
+  .service-showcase-card:hover .service-title-pill{opacity:0; transform:translateX(-50%) translateY(10px); pointer-events:none;}
+  
+  .service-hover-overlay{position:absolute; inset:0; display:flex; align-items:flex-end; justify-content:center; padding:6px 8px 10px; background:transparent; border-radius:16px; opacity:0; transform:translateY(14px); pointer-events:none; transition:opacity .35s cubic-bezier(0.16,1,0.3,1), transform .35s cubic-bezier(0.16,1,0.3,1); z-index:10;}
+  .service-showcase-card:hover .service-hover-overlay{opacity:1; transform:translateY(0); pointer-events:auto;}
+  .service-hover-card{width:95%; background:#ffffff; border:1px solid var(--line); border-radius:14px; padding:16px 14px 14px; box-shadow:0 14px 30px rgba(0,0,0,0.1); text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:space-between;}
+  .service-hover-title{font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:700; color:var(--ink); margin:0; line-height:1.25; text-align:center;}
+  .service-hover-divider{width:92%; height:1px; background:var(--line); margin:9px auto 11px;}
+  .service-hover-cols{display:grid; grid-template-columns:1fr 1fr; gap:6px 16px; width:100%; margin-bottom:12px;}
+  .service-hover-col{display:flex; flex-direction:column; gap:5px; align-items:center;}
+  .service-hover-list{display:flex; flex-direction:column; gap:5px; width:100%; margin-bottom:12px; align-items:center;}
+  .service-hover-item{font-family:'Inter',sans-serif; font-size:14px; font-weight:600; color:var(--text); line-height:1.4; text-align:center;}
+  .service-hover-btn-wrap{margin-top:4px; width:100%; display:flex; justify-content:center;}
+  .service-hover-button{display:inline-flex; align-items:center; justify-content:center; background:transparent; color:var(--teal); font-size:13.5px; font-weight:600; padding:7px 26px; border-radius:9999px; border:1px solid var(--teal); transition:all .25s ease; text-decoration:none;}
+  .service-hover-button:hover{background:linear-gradient(135deg, var(--teal), #0B685F); border-color:transparent; color:#fff; box-shadow:0 4px 14px var(--glow-teal); transform:translateY(-1px) scale(1.02);}
+  .service-description{font-size:14px; color:var(--muted); line-height:1.6; margin:8px 0 20px; max-width:320px; flex-grow:1; transition:color .25s ease;}
+  .service-btn-container{margin-top:auto;}
+  .service-explore-button{display:inline-flex; align-items:center; justify-content:center; background:transparent; color:var(--teal); font-size:13.5px; font-weight:600; padding:8px 26px; border-radius:9999px; transition:all .25s ease; box-shadow:none; border:1px solid var(--teal);}
+  .service-explore-button:hover{background:linear-gradient(135deg, var(--teal), #0B685F); border-color:transparent; color:#fff; transform:translateY(-2px); box-shadow:0 4px 14px var(--glow-teal);}
+  .service-showcase-card:hover .service-explore-button{opacity:0; pointer-events:none; transform:translateY(10px);}
 
   /* ---------- TECHNOLOGIES ---------- */
   .tech-cols{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
@@ -375,36 +394,203 @@
       <h2>Custom software, built around your business.</h2>
       <p>Beyond our own products, we design and build software for clients end to end.</p>
     </div>
-    <div class="services-grid">
-      <div class="service-card reveal">
-        <div class="service-num">01</div>
-        <h3>Mobile App Development</h3>
-        <p>Native and cross‑platform apps for Android and iOS, from concept through launch and support.</p>
+    <div class="services-cards-grid">
+      <!-- 01 Mobile App -->
+      <div class="service-showcase-card">
+        <div class="service-card-media">
+          <span class="service-num-badge">01</span>
+          <img src="services/mobile-app.jpg" alt="Mobile App Development" class="service-card-image">
+          <div class="service-title-pill">Mobile App Development</div>
+          <div class="service-hover-overlay">
+            <div class="service-hover-card">
+              <h3 class="service-hover-title">Mobile App Development</h3>
+              <div class="service-hover-divider"></div>
+              <div class="service-hover-cols">
+                <div class="service-hover-col">
+                  <span class="service-hover-item">IOS</span>
+                  <span class="service-hover-item">Android</span>
+                  <span class="service-hover-item">ReactNative</span>
+                </div>
+                <div class="service-hover-col">
+                  <span class="service-hover-item">Ionic</span>
+                  <span class="service-hover-item">Flutter</span>
+                  <span class="service-hover-item">Xamarin</span>
+                </div>
+              </div>
+              <div class="service-hover-btn-wrap">
+                <a href="service-mobile-app.html" class="service-hover-button">Explore More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="service-description">Native and cross-platform apps for Android and iOS, from concept through launch and support.</p>
+        <div class="service-btn-container">
+          <a href="service-mobile-app.html" class="service-explore-button">Explore More</a>
+        </div>
       </div>
-      <div class="service-card reveal">
-        <div class="service-num">02</div>
-        <h3>Artificial Intelligence</h3>
-        <p>AI‑powered features and tools — from automation to intelligent dashboards — built into your existing systems.</p>
+
+      <!-- 02 AI -->
+      <div class="service-showcase-card">
+        <div class="service-card-media">
+          <span class="service-num-badge">02</span>
+          <img src="services/ai.jpg" alt="Artificial Intelligence" class="service-card-image">
+          <div class="service-title-pill">Artificial Intelligence</div>
+          <div class="service-hover-overlay">
+            <div class="service-hover-card">
+              <h3 class="service-hover-title">Artificial Intelligence</h3>
+              <div class="service-hover-divider"></div>
+              <div class="service-hover-cols">
+                <div class="service-hover-col">
+                  <span class="service-hover-item">Object Recognition</span>
+                  <span class="service-hover-item">Text To Speech</span>
+                </div>
+                <div class="service-hover-col">
+                  <span class="service-hover-item">Business Intelligence</span>
+                  <span class="service-hover-item">Data Analytics</span>
+                </div>
+              </div>
+              <div class="service-hover-btn-wrap">
+                <a href="service-ai.html" class="service-hover-button">Explore More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="service-description">AI-powered features and tools — from automation to intelligent dashboards — built into your existing systems.</p>
+        <div class="service-btn-container">
+          <a href="service-ai.html" class="service-explore-button">Explore More</a>
+        </div>
       </div>
-      <div class="service-card reveal">
-        <div class="service-num">03</div>
-        <h3>Web &amp; CMS Development</h3>
-        <p>Marketing sites, web apps and content‑managed platforms built for speed and easy day‑to‑day editing.</p>
+
+      <!-- 03 Web And CMS -->
+      <div class="service-showcase-card">
+        <div class="service-card-media">
+          <span class="service-num-badge">03</span>
+          <img src="services/web-cms.jpg" alt="Web And CMS Development" class="service-card-image">
+          <div class="service-title-pill">Web And CMS Development</div>
+          <div class="service-hover-overlay">
+            <div class="service-hover-card">
+              <h3 class="service-hover-title">Web And CMS Development</h3>
+              <div class="service-hover-divider"></div>
+              <div class="service-hover-cols">
+                <div class="service-hover-col">
+                  <span class="service-hover-item">Php</span>
+                  <span class="service-hover-item">Wordpress</span>
+                  <span class="service-hover-item">Python</span>
+                </div>
+                <div class="service-hover-col">
+                  <span class="service-hover-item">Cakephp</span>
+                  <span class="service-hover-item">joomla</span>
+                  <span class="service-hover-item">Laravel</span>
+                </div>
+              </div>
+              <div class="service-hover-btn-wrap">
+                <a href="service-web-cms.html" class="service-hover-button">Explore More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="service-description">Marketing sites, web apps and content-managed platforms built for speed and easy day-to-day editing.</p>
+        <div class="service-btn-container">
+          <a href="service-web-cms.html" class="service-explore-button">Explore More</a>
+        </div>
       </div>
-      <div class="service-card reveal">
-        <div class="service-num">04</div>
-        <h3>Salesforce Development</h3>
-        <p>Custom Salesforce configuration, integrations and apps that fit your existing sales and support workflow.</p>
+
+      <!-- 04 Blockchain -->
+      <div class="service-showcase-card">
+        <div class="service-card-media">
+          <span class="service-num-badge">04</span>
+          <img src="services/blockchain.png" alt="Blockchain Development" class="service-card-image">
+          <div class="service-title-pill">Blockchain Development</div>
+          <div class="service-hover-overlay">
+            <div class="service-hover-card">
+              <h3 class="service-hover-title">Blockchain Development</h3>
+              <div class="service-hover-divider"></div>
+              <div class="service-hover-cols">
+                <div class="service-hover-col">
+                  <span class="service-hover-item">Wallet</span>
+                  <span class="service-hover-item">Exchange</span>
+                </div>
+                <div class="service-hover-col">
+                  <span class="service-hover-item">Ethereum</span>
+                  <span class="service-hover-item">Hyperledger</span>
+                </div>
+              </div>
+              <div class="service-hover-btn-wrap">
+                <a href="service-blockchain.html" class="service-hover-button">Explore More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="service-description">Decentralized applications, smart contracts, crypto wallets, and secure enterprise blockchain networks.</p>
+        <div class="service-btn-container">
+          <a href="service-blockchain.html" class="service-explore-button">Explore More</a>
+        </div>
       </div>
-      <div class="service-card reveal">
-        <div class="service-num">05</div>
-        <h3>Ecommerce Development</h3>
-        <p>Online stores with catalogue, payments and inventory wired together, ready to scale with your business.</p>
+
+      <!-- 05 SalesForce -->
+      <div class="service-showcase-card">
+        <div class="service-card-media">
+          <span class="service-num-badge">05</span>
+          <img src="services/salesforce.jpg" alt="SalesForce Development" class="service-card-image">
+          <div class="service-title-pill">SalesForce Development</div>
+          <div class="service-hover-overlay">
+            <div class="service-hover-card">
+              <h3 class="service-hover-title">SalesForce Development</h3>
+              <div class="service-hover-divider"></div>
+              <div class="service-hover-cols">
+                <div class="service-hover-col">
+                  <span class="service-hover-item">Development</span>
+                  <span class="service-hover-item">Consulting</span>
+                </div>
+                <div class="service-hover-col">
+                  <span class="service-hover-item">Implementation</span>
+                  <span class="service-hover-item">Integration</span>
+                </div>
+              </div>
+              <div class="service-hover-btn-wrap">
+                <a href="service-salesforce.html" class="service-hover-button">Explore More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="service-description">Custom Salesforce configuration, integrations and apps that fit your existing sales and support workflow.</p>
+        <div class="service-btn-container">
+          <a href="service-salesforce.html" class="service-explore-button">Explore More</a>
+        </div>
       </div>
-      <div class="service-card reveal">
-        <div class="service-num">06</div>
-        <h3>Custom Software Development</h3>
-        <p>Purpose‑built software for workflows that off‑the‑shelf tools don't cover — including Trushti POS &amp; Desktime.</p>
+
+      <!-- 06 Ecommerce -->
+      <div class="service-showcase-card">
+        <div class="service-card-media">
+          <span class="service-num-badge">06</span>
+          <img src="services/ecommerce.jpg" alt="Ecommerce Development" class="service-card-image">
+          <div class="service-title-pill">Ecommerce Development</div>
+          <div class="service-hover-overlay">
+            <div class="service-hover-card">
+              <h3 class="service-hover-title">Ecommerce Development</h3>
+              <div class="service-hover-divider"></div>
+              <div class="service-hover-cols">
+                <div class="service-hover-col">
+                  <span class="service-hover-item">Shopify</span>
+                  <span class="service-hover-item">Magento</span>
+                  <span class="service-hover-item">OpenCart</span>
+                </div>
+                <div class="service-hover-col">
+                  <span class="service-hover-item">WooCommerce</span>
+                  <span class="service-hover-item">BigCommerce</span>
+                  <span class="service-hover-item">Custom Store</span>
+                </div>
+              </div>
+              <div class="service-hover-btn-wrap">
+                <a href="service-ecommerce.html" class="service-hover-button">Explore More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="service-description">Online stores with catalogue, payments and inventory wired together, ready to scale with your business.</p>
+        <div class="service-btn-container">
+          <a href="service-ecommerce.html" class="service-explore-button">Explore More</a>
+        </div>
       </div>
     </div>
   </div>

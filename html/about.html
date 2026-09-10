@@ -232,18 +232,39 @@
   .fcard li{font-size:13px; color:var(--muted); padding:3px 0;}
   .fcard li::before{content:"·"; color:var(--teal); font-weight:900; margin-right:6px;}
 
-  /* ---------- ABOUT ---------- */
-  .about{background:var(--ink); color:#fff;}
-  .about .section-eyebrow{color:var(--amber);}
-  .about .section-head h2{color:#fff;}
-  .about .section-head p{color:#C4C9D4;}
-  .about-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:start;}
-  @media (max-width:860px){ .about-grid{grid-template-columns:1fr;} }
-  .about-copy p{color:#C4C9D4; font-size:15.5px; margin-bottom:16px;}
-  .about-stats{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
-  .astat{border:1px solid rgba(255,255,255,0.12); border-radius:14px; padding:22px; background:rgba(255,255,255,0.03);}
-  .astat b{display:block; font-family:'Space Grotesk'; font-size:24px; color:var(--teal); margin-bottom:4px;}
-  .astat span{font-size:13px; color:var(--muted-2);}
+  /* ---------- ABOUT COMPANY (PREMIUM UI) ---------- */
+  .about-company-section { padding: 100px 0 120px; background: radial-gradient(circle at top left, rgba(18, 165, 148, 0.03), transparent 40%), radial-gradient(circle at bottom right, rgba(14, 20, 32, 0.02), transparent 40%); position: relative; overflow: hidden; }
+  .about-company-section::before { content: ""; position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(18, 165, 148, 0.05) 0%, transparent 70%); border-radius: 50%; z-index: 0; pointer-events: none; }
+  .about-company-header { text-align: center; margin-bottom: 70px; display: flex; align-items: center; justify-content: center; position: relative; z-index: 2; }
+  .about-company-eyebrow { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 800; color: var(--teal); text-transform: uppercase; letter-spacing: 0.15em; display: flex; align-items: center; gap: 24px; padding: 8px 24px; background: rgba(18, 165, 148, 0.06); border-radius: 99px; border: 1px solid rgba(18, 165, 148, 0.15); }
+  .about-company-eyebrow::before, .about-company-eyebrow::after { content: ""; display: block; width: 30px; height: 2px; background: var(--teal); opacity: 0.5; border-radius: 2px; }
+  .about-company-grid { display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 80px; align-items: center; position: relative; z-index: 2; }
+  @media (max-width: 1024px) { .about-company-grid { gap: 40px; } }
+  @media (max-width: 860px) { .about-company-grid { grid-template-columns: 1fr; gap: 60px; } }
+
+  .about-company-image-col { width: 100%; position: relative; }
+  .about-company-image-col::after { content: ""; position: absolute; inset: 20px -20px -20px 20px; border-radius: 240px 240px 24px 24px; background: linear-gradient(135deg, rgba(18, 165, 148, 0.2), transparent); z-index: -1; filter: blur(20px); }
+  .about-arch-img-wrap { width: 100%; border-radius: 240px 240px 24px 24px; overflow: hidden; box-shadow: 0 30px 60px rgba(10, 37, 64, 0.12), inset 0 0 0 1px rgba(255,255,255,0.5); aspect-ratio: 0.85 / 1; border: 10px solid #ffffff; background: #ffffff; position: relative; transform: translateY(0); transition: transform 0.4s ease; }
+  .about-arch-img-wrap:hover { transform: translateY(-10px); }
+  .about-arch-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 230px 230px 14px 14px; transition: transform 0.6s ease; }
+  .about-arch-img-wrap:hover img { transform: scale(1.05); }
+
+  .about-company-text-col { display: flex; flex-direction: column; gap: 36px; }
+  .about-company-title { font-family: 'Space Grotesk', sans-serif; font-size: 46px; font-weight: 800; background: linear-gradient(135deg, var(--ink) 30%, var(--teal)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.15; margin-bottom: 0; letter-spacing: -0.02em; }
+  .about-company-block { display: flex; flex-direction: column; gap: 12px; position: relative; padding-left: 24px; border-left: 2px solid rgba(18, 165, 148, 0.15); transition: border-color 0.3s ease; }
+  .about-company-block:hover { border-color: var(--teal); }
+  .about-company-subtitle { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; display: flex; align-items: center; gap: 10px; }
+  .about-company-subtitle::before { content: "✦"; color: var(--teal); font-size: 14px; }
+  .about-company-block p { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.7; color: #475569; margin: 0; }
+
+  .about-company-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 10px; }
+  @media (max-width: 600px) { .about-company-stats { grid-template-columns: repeat(2, 1fr); } }
+  .about-astat { border: 1px solid rgba(18, 165, 148, 0.1); border-radius: 20px; padding: 24px 12px; text-align: center; background: linear-gradient(180deg, #ffffff, #f8fafc); box-shadow: 0 10px 30px rgba(10, 37, 64, 0.03); transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); position: relative; overflow: hidden; }
+  .about-astat::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--teal); transform: scaleX(0); transition: transform 0.3s ease; transform-origin: left; }
+  .about-astat:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(18, 165, 148, 0.12); border-color: rgba(18, 165, 148, 0.3); }
+  .about-astat:hover::before { transform: scaleX(1); }
+  .about-astat b { display: block; font-family: 'Space Grotesk', sans-serif; font-size: 30px; color: var(--teal); margin-bottom: 4px; font-weight: 800; letter-spacing: -0.02em; }
+  .about-astat span { font-size: 14px; color: var(--ink); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.7; }
 
   /* ---------- SERVICES ---------- */
   .services-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
@@ -368,24 +389,43 @@
 </header>
 
 <!-- ================= ABOUT ================= -->
-<section class="about" id="about">
+<section class="about-company-section" id="about">
   <div class="wrap">
-    <div class="section-head reveal">
-      <span class="section-eyebrow">02 · About Us</span>
-      <h2>We build software, then run our own products on it.</h2>
+    <div class="about-company-header reveal">
+      <span class="about-company-eyebrow">ABOUT THE COMPANY</span>
     </div>
-    <div class="about-grid">
-      <div class="about-copy reveal">
-        <p>Trushti Solutions is a software company based in Ahmedabad, Gujarat, building both ready‑to‑use business products and custom software for clients across retail, services and technology.</p>
-        <p>Our own products — Trushti POS and Trushti Desktime — are built and supported by the same team that takes on client projects, which is why we design everything to be fast to deploy, easy to train staff on, and simple to keep running day to day.</p>
-        <p>Alongside our products, we offer custom software development services: mobile apps, AI‑driven tools, web platforms, Salesforce implementations and ecommerce builds — for businesses that need something built around their own workflow.</p>
-        <button class="btn btn-accent" onclick="openDemo('General')">Talk to Our Team →</button>
+    
+    <div class="about-company-grid">
+      <div class="about-company-image-col reveal">
+        <div class="about-arch-img-wrap">
+          <img src="/services/mobile-app.jpg" alt="About Trushti Solutions" />
+        </div>
       </div>
-      <div class="about-stats reveal">
-        <div class="astat"><b>100+</b><span>Businesses using Trushti POS</span></div>
-        <div class="astat"><b>24×7</b><span>Customer support</span></div>
-        <div class="astat"><b>2</b><span>In‑house products</span></div>
-        <div class="astat"><b>6+</b><span>IT service lines</span></div>
+      
+      <div class="about-company-text-col reveal" style="transition-delay: 0.2s;">
+        <h2 class="about-company-title">Welcome To Trushti Solutions</h2>
+        
+        <div class="about-company-block">
+          <h3 class="about-company-subtitle">Company overview</h3>
+          <p>Trushti Solutions is a software company based in Ahmedabad, Gujarat, building both ready-to-use business products and custom software for clients across retail, services and technology.</p>
+        </div>
+        
+        <div class="about-company-block">
+          <h3 class="about-company-subtitle">Our Story</h3>
+          <p>Our own products — Trushti POS and Trushti Desktime — are built and supported by the same team that takes on client projects, which is why we design everything to be fast to deploy, easy to train staff on, and simple to keep running day to day.</p>
+        </div>
+        
+        <div class="about-company-block">
+          <h3 class="about-company-subtitle">Our Goal</h3>
+          <p>Alongside our products, we offer custom software development services: mobile apps, AI-driven tools, web platforms, Salesforce implementations and ecommerce builds — for businesses that need something built around their own workflow.</p>
+        </div>
+
+        <div class="about-company-stats">
+           <div class="about-astat"><b>100+</b><span>Businesses</span></div>
+           <div class="about-astat"><b>24×7</b><span>Support</span></div>
+           <div class="about-astat"><b>2</b><span>Products</span></div>
+           <div class="about-astat"><b>6+</b><span>Services</span></div>
+        </div>
       </div>
     </div>
   </div>
