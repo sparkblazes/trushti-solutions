@@ -25,8 +25,12 @@ export default function DemoModal() {
     // Global click listener for backwards compatibility with Server Components
     const handleGlobalClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
+      const linkOrBtn = target.closest('button, a');
+      if (linkOrBtn && (linkOrBtn.tagName.toLowerCase() === 'a' || linkOrBtn.getAttribute('href')?.includes('wa.me'))) {
+        return;
+      }
       const btn = target.closest('button');
-      if (btn && btn.textContent && btn.textContent.includes('Book')) {
+      if (btn && btn.textContent && btn.textContent.includes('Book') && !btn.textContent.includes('WhatsApp')) {
         let prod = 'General';
         if (btn.textContent.includes('POS')) prod = 'Trushti POS';
         if (btn.textContent.includes('Desktime')) prod = 'Trushti Desktime';
@@ -91,8 +95,7 @@ export default function DemoModal() {
     );
 
     setIsSuccess(true);
-
-
+    window.open(`https://wa.me/919737300478?text=${waText}`, '_blank');
   };
 
   if (!isOpen) return null;

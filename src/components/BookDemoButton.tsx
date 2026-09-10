@@ -7,16 +7,21 @@ interface BookDemoButtonProps {
   className?: string;
   style?: React.CSSProperties;
   product?: string;
+  onClick?: () => void;
 }
 
 export default function BookDemoButton({
   text = 'Book Free Demo',
   className = 'btn btn-accent',
   style,
-  product = 'General'
+  product = 'General',
+  onClick
 }: BookDemoButtonProps) {
 
   const handleClick = () => {
+    if (onClick) {
+      onClick();
+    }
     // Dispatch the custom event that DemoModal is listening for
     window.dispatchEvent(new CustomEvent('open-demo', { detail: product }));
   };

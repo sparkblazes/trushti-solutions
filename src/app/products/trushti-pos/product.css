@@ -197,25 +197,33 @@
   gap: 70px;
 }
 
-.tpos-module-block {
-  scroll-margin-top: 150px;
+.tpos-unified-card {
   background: #ffffff;
   border: 1px solid var(--tpos-border);
   border-radius: 24px;
-  padding: 44px;
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.04);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  padding: 48px;
+  box-shadow: 0 10px 35px -10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
 }
 
-.tpos-module-block:hover {
-  box-shadow: 0 20px 40px -15px rgba(5, 150, 105, 0.08);
+.tpos-module-block {
+  scroll-margin-top: 150px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.tpos-module-block:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
 .tpos-module-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 48px;
-  align-items: center;
+  align-items: start;
 }
 
 .tpos-module-grid.reverse {
@@ -231,12 +239,57 @@
 }
 
 @media (max-width: 960px) {
+  .tpos-modules-container {
+    padding: 30px 0;
+    gap: 40px;
+  }
+  .tpos-unified-card {
+    padding: 24px 16px;
+    border-radius: 16px;
+    gap: 32px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
   .tpos-module-block {
-    padding: 28px;
+    padding: 0 0 32px 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
   .tpos-module-grid, .tpos-module-grid.reverse {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 28px;
+    width: 100%;
+    max-width: 100%;
+  }
+  .tpos-module-info {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+  .tpos-module-title {
+    font-size: 1.5rem;
+  }
+  .tpos-module-desc {
+    font-size: 0.95rem;
+  }
+  .tpos-module-preview-wrap {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .tpos-dashboard-card,
+  .tpos-mockup-body {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
   .tpos-module-grid.reverse .tpos-module-info {
     order: 1;
@@ -644,4 +697,109 @@
   border-radius: 10px;
   width: 100%;
   font-weight: 600;
+}
+
+/* ------------ REPORTS MOCKUP & RESPONSIVE REFINEMENTS ------------ */
+.tpos-reports-mockup-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  width: 140%;
+  max-width: 140%;
+}
+
+.tpos-reports-mockup-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+.tpos-table-scroll-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 960px) {
+  .tpos-reports-mockup-card {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .tpos-unified-card {
+    padding: 24px 16px;
+    border-radius: 16px;
+    gap: 40px;
+  }
+  .tpos-tabs-wrapper {
+    top: 60px;
+    padding: 10px 0;
+  }
+  .tpos-tab-pill {
+    padding: 6px 14px;
+    font-size: 0.82rem;
+  }
+  .tpos-module-title {
+    font-size: 1.5rem;
+  }
+  .tpos-circle-num {
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tpos-hero-section {
+    padding: 40px 0 24px;
+  }
+  .tpos-hero-title {
+    font-size: 1.8rem;
+  }
+  .tpos-hero-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+  }
+  .tpos-download-section {
+    padding: 48px 0;
+    border-radius: 20px 20px 0 0;
+  }
+  .tpos-download-section .tpos-section-title {
+    font-size: 1.6rem;
+  }
+  .tpos-download-grid {
+    grid-template-columns: 1fr;
+  }
+  .tpos-download-card {
+    padding: 24px 16px;
+  }
+  .tpos-dash-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.tpos-mockup-scroll-wrapper {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.tpos-mockup-inner-minwidth {
+  min-width: 520px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  .tpos-mockup-inner-minwidth {
+    min-width: 480px;
+  }
 }
