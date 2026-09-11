@@ -221,13 +221,13 @@
 
 .tpos-module-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: start;
+  grid-template-columns: 0.75fr 1.25fr;
+  gap: 36px;
+  align-items: center;
 }
 
 .tpos-module-grid.reverse {
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.25fr 0.75fr;
 }
 
 .tpos-module-grid.reverse .tpos-module-info {
@@ -404,18 +404,12 @@
 }
 
 .tpos-dashboard-card {
-  background: #ffffff;
-  border: 1px solid var(--tpos-border);
-  border-radius: 20px;
-  box-shadow: 0 16px 40px -10px rgba(15, 23, 42, 0.08);
   overflow: hidden;
-  padding: 16px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .tpos-dashboard-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 22px 48px -12px rgba(5, 150, 105, 0.14);
 }
 
 .tpos-dashboard-img {
@@ -706,12 +700,14 @@
   border-radius: 14px;
   padding: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-  width: 140%;
-  max-width: 140%;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .tpos-reports-mockup-img {
   width: 100%;
+  max-width: 100%;
   height: auto;
   display: block;
   border-radius: 10px;
@@ -720,8 +716,10 @@
 
 .tpos-table-scroll-container {
   width: 100%;
+  max-width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
 }
 
 @media (max-width: 960px) {
@@ -756,11 +754,16 @@
 }
 
 @media (max-width: 480px) {
+  .tpos-unified-card {
+    padding: 16px 12px;
+    border-radius: 14px;
+    gap: 24px;
+  }
   .tpos-hero-section {
     padding: 40px 0 24px;
   }
   .tpos-hero-title {
-    font-size: 1.8rem;
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
   }
   .tpos-hero-subtitle {
     font-size: 0.95rem;
@@ -794,12 +797,160 @@
 }
 
 .tpos-mockup-inner-minwidth {
-  min-width: 520px;
+  min-width: 500px;
   box-sizing: border-box;
 }
 
 @media (max-width: 600px) {
   .tpos-mockup-inner-minwidth {
-    min-width: 480px;
+    min-width: 440px;
+  }
+}
+
+@media (max-width: 440px) {
+  .tpos-mockup-inner-minwidth {
+    min-width: 360px;
+  }
+}
+
+/* ---- Trushti POS Page: Extra Mobile Fixes ---- */
+@media (max-width: 480px) {
+  .tpos-product-details-page {
+    padding-bottom: 40px;
+  }
+
+  .tpos-hero-grid {
+    gap: 24px;
+  }
+
+  .tpos-hero-right {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .tpos-hero-computer-img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .tpos-modules-container {
+    padding: 20px 0;
+    gap: 24px;
+  }
+
+  .tpos-module-header {
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .tpos-module-title {
+    font-size: 1.3rem;
+  }
+
+  .tpos-module-tagline {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+  }
+
+  .tpos-module-desc {
+    font-size: 0.88rem;
+    margin-bottom: 20px;
+  }
+
+  .tpos-checklist {
+    gap: 8px 12px;
+  }
+
+  .tpos-checklist li {
+    font-size: 0.85rem;
+  }
+
+  .tpos-badge-float-top {
+    font-size: 0.75rem;
+    padding: 5px 12px;
+    margin-bottom: 8px;
+  }
+
+  .tpos-module-block {
+    padding-bottom: 24px;
+  }
+
+  .tpos-download-section .tpos-section-title {
+    font-size: clamp(1.3rem, 5vw, 1.6rem);
+  }
+
+  .tpos-download-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 32px;
+  }
+
+  .tpos-download-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .tpos-download-card p {
+    font-size: 0.82rem;
+  }
+
+  .tpos-tabs-flex {
+    gap: 6px;
+  }
+}
+
+@media (max-width: 375px) {
+  .tpos-hero-title {
+    font-size: clamp(1.4rem, 6vw, 1.8rem);
+  }
+
+  .tpos-hero-subtitle {
+    font-size: 0.88rem;
+  }
+
+  .tpos-unified-card {
+    padding: 14px 10px;
+    gap: 20px;
+  }
+
+  .tpos-module-title {
+    font-size: 1.15rem;
+  }
+
+  .tpos-circle-num {
+    width: 32px;
+    height: 32px;
+    font-size: 0.85rem;
+  }
+
+  .tpos-checklist {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .tpos-checklist li {
+    font-size: 0.82rem;
+  }
+
+  .tpos-tab-pill {
+    padding: 5px 10px;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .tpos-hero-title {
+    font-size: 1.2rem;
+  }
+
+  .tpos-unified-card {
+    padding: 12px 8px;
+  }
+
+  .tpos-module-title {
+    font-size: 1.05rem;
+  }
+
+  .tpos-module-desc {
+    font-size: 0.82rem;
   }
 }

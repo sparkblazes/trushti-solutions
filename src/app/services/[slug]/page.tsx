@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import BookDemoButton from '@/components/BookDemoButton';
 
 export const dynamicParams = true;
 
@@ -198,6 +197,11 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
       {/* ================= OVERVIEW SECTION ================= */}
       <section className="service-overview-section">
         <div className="wrap">
+          <div style={{ marginBottom: '24px' }}>
+            <Link href="/services" className="service-back-link">
+              ← Back to Services
+            </Link>
+          </div>
           <div className="service-overview-container">
             <span className="service-overview-eyebrow">Overview</span>
             <h1 className="service-overview-title">{service.overviewTitle}</h1>
@@ -259,8 +263,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
               <p>Discuss your technical requirements with our dedicated engineering team in Ahmedabad.</p>
             </div>
             <div className="services-cta-actions">
-              <BookDemoButton text="Book Free Demo" className="btn btn-accent" />
-              <Link href="/contact" className="btn btn-ghost" style={{ color: '#fff', borderColor: 'rgba(255,255,255,0.3)' }}>
+              <Link href={`/contact?service=${service.slug}`} className="btn btn-accent">
                 Contact Us →
               </Link>
             </div>
