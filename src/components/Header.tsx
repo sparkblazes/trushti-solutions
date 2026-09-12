@@ -42,7 +42,7 @@ export default function Header() {
     <header className={isMobileMenuOpen ? 'menu-open' : ''}>
       <nav>
         <Link href="/" className="logo" onClick={closeMenu}>
-          <img src="/sidebar-logo.png" alt="Trushti Solutions Logo" style={{ height: "48px", objectFit: "contain" }} />
+          <img src="/sidebar-logo.png" alt="Trushti Solutions Logo" style={{ height: "65px", objectFit: "contain" }} />
         </Link>
 
         {/* Desktop Navigation Links */}

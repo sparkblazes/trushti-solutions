@@ -40,7 +40,9 @@ export default function HomePage() {
           <div className="bento-grid">
             <div className="bento-card large">
               <div>
-                <div className="bento-icon">🛒</div>
+                <div className="bento-icon">
+                  <img src="/trushti-pos-icon.png" alt="Trushti POS Icon" style={{ width: "36px", height: "36px", objectFit: "contain" }} />
+                </div>
                 <h3>Trushti POS</h3>
                 <p>A complete business management system for retailers. Experience unparalleled speed with our 3-second checkout, robust inventory management, and one-click Tally synchronization.</p>
               </div>

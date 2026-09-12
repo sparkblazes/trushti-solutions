@@ -49,7 +49,7 @@ export default function AboutPage() {
                  <div className="about-astat"><b>100+</b><span>Businesses</span></div>
                  <div className="about-astat"><b>24×7</b><span>Support</span></div>
                  <div className="about-astat"><b>2</b><span>Products</span></div>
-                 <div className="about-astat"><b>6+</b><span>Services</span></div>
+                 <div className="about-astat"><b>28+</b><span>Services</span></div>
               </div>
             </div>
           </div>

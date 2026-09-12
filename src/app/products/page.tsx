@@ -15,14 +15,16 @@ export default function ProductsPage() {
           </div>
 
           <div className="products-grid">
-            
+
             {/* Trushti POS Card */}
             <div className="product-card-item reveal">
               <div className="product-card-body">
-                <span className="product-category-badge pos-badge">Retail Management</span>
+                <div style={{ marginBottom: '16px' }}>
+                  <img src="/trushti-pos-icon.png" alt="Trushti POS Icon" style={{ width: "48px", height: "48px", objectFit: "contain" }} />
+                </div>
                 <h3>Trushti POS</h3>
                 <p className="product-card-desc">
-                  A complete business management system for retailers. Generate invoices in 3 seconds, manage stock, and sync with Tally automatically.
+                  A complete business management system for retailers and wholesalers. Generate invoices in 3 seconds, manage stock, and sync with Tally automatically.
                 </p>
               </div>
 
@@ -31,7 +33,7 @@ export default function ProductsPage() {
                 <span className="feature-pill">📦 Smart Inventory</span>
                 <span className="feature-pill">🔄 Tally Sync</span>
               </div>
-              
+
               <div className="product-card-action">
                 <Link href="/products/trushti-pos" className="btn-product-details">
                   View Details →
@@ -54,7 +56,7 @@ export default function ProductsPage() {
                 <span className="feature-pill">📊 Productivity</span>
                 <span className="feature-pill">💰 Payroll</span>
               </div>
-              
+
               <div className="product-card-action">
                 <Link href="#" className="btn-product-coming-soon">
                   Coming Soon
